@@ -1,0 +1,265 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: whitesmoke;
+  font-family: "Poppins", sans-serif;
+}
+
+$color-gradient: linear-gradient(to right, blue, purple);
+
+@mixin navAnimate($width) {
+  content: "";
+  background: $color-gradient;
+  display: block;
+  border-radius: 1px;
+  position: absolute;
+  width: $width;
+  height: 3px;
+  bottom: -3px;
+  left: -1px;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform ease-out 150ms;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 14vh;
+  font-size: 24px;
+  color: whitesmoke;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  position: fixed;
+
+  .nav-links {
+    display: flex;
+    width: 35vw;
+    justify-content: space-around;
+    align-items: center;
+    letter-spacing: 2px;
+    animation: navFrames cubic-bezier(0.25, 0.1, 0.25, 1.3) 500ms;
+    a {
+      color: whitesmoke;
+      text-decoration: none;
+      list-style-type: none;
+      font-size: 14px;
+      position: relative;
+    }
+    li {
+      list-style: none;
+    }
+  }
+}
+
+.anchor1::after {
+  @include navAnimate(49px);
+}
+.anchor2::after {
+  @include navAnimate(53px);
+}
+.anchor3::after {
+  @include navAnimate(46px);
+}
+.anchor4::after {
+  @include navAnimate(73px);
+}
+
+.anchor1:hover::after,
+.anchor2:hover::after,
+.anchor3:hover::after,
+.anchor4:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+main {
+  height: 100vw;
+  width: 100vw;
+}
+
+.herosection {
+  height: 100vh;
+  width: 100%;
+  background: url("./hamidreza-torabi-9ggFurIDYdA-unsplash.jpg") center
+    center/cover;
+}
+
+.hero-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 110%;
+}
+
+.background {
+  background: cover;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: auto;
+  z-index: -1;
+  object-fit: cover;
+}
+
+.landing {
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  align-items: center;
+  color: whitesmoke;
+  font-family: "Poppins", sans-serif;
+  .landing-text {
+    align-items: center;
+    justify-content: center;
+    .heading {
+      margin: 20px 0px;
+      font-size: 40px;
+      opacity: 0;
+      animation: fade-in 500ms ease-in-out forwards;
+    }
+    .loremipsum {
+      margin: 20px 0px;
+      width: 40vw;
+      opacity: 0;
+      animation: fade-in 500ms ease-in-out 1s forwards;
+    }
+  }
+
+  #booking-button {
+    margin-top: 20px;
+    font-size: 16px;
+    z-index: 2;
+    background-color: transparent;
+    padding: 20px 40px;
+    color: whitesmoke;
+    border-color: $color-gradient;
+    border-width: 4px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    position: relative;
+    opacity: 0;
+    animation: fade-in 500ms ease-in-out 2s forwards;
+    &::before {
+      content: "";
+      background: $color-gradient;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      border-radius: 50px;
+      padding: 4px;
+      z-index: -2;
+      transform: scale(0);
+      transition: transform ease-out 100ms;
+    }
+  }
+}
+
+#booking-button:hover::before {
+  transform: scale(1);
+}
+
+.ill-div {
+  width: 450px;
+  height: 450px;
+  object-fit: cover;
+  align-self: flex-end;
+  margin-right: 50px;
+}
+
+#ill {
+  filter: brightness(100);
+  width: 450px;
+  height: 450px;
+  opacity: 0;
+  animation: fade-in 500ms ease-in-out 2s forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(5%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+@keyframes navFrames {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 480px;
+  }
+}
+
+.landing-pg2 {
+  display: flex;
+  column-gap: 10em;
+  justify-content: space-between;
+  align-items: center;
+  margin: 25vh 5vw;
+  height: 50vh;
+  .landingtext-pg2 {
+    width: 45%;
+    .title-pg2 {
+      margin: 20px 0px;
+      font-size: 2.6rem;
+      opacity: 0;
+      animation: fade-in 250ms ease-in-out 5s forwards;
+      .lft {
+        color: blue;
+        transition-duration: 400ms;
+        &:hover {
+          color: purple;
+        }
+      }
+    }
+    .loremipsum-pg2 {
+      margin: 20px 0px;
+      opacity: 0;
+      animation: fade-in 250ms ease-in-out 6s forwards;
+    }
+  }
+}
+
+.illustration-pg2 {
+  background: url(./illustration2.png) center;
+  width: 600px;
+  height: 300px;
+  position: relative;
+  transform-origin: top;
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 86%;
+    bottom: 20px;
+    background-color: whitesmoke;
+    transform: scaleY(1);
+    animation: top-reveal 2s ease-in-out 7.5s forwards;
+  }
+}
+
+@keyframes top-reveal {
+  from {
+    transform: scaleY(1);
+    z-index: 2;
+    transform-origin: bottom;
+  }
+  to {
+    transform: scaleY(0);
+    z-index: 2;
+    transform-origin: bottom;
+  }
+}
