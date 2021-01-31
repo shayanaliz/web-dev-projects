@@ -216,7 +216,6 @@ main {
       margin: 20px 0px;
       font-size: 2.6rem;
       opacity: 0;
-      animation: fade-in 250ms ease-in-out 5s forwards;
       .lft {
         color: blue;
         transition-duration: 400ms;
@@ -228,7 +227,6 @@ main {
     .loremipsum-pg2 {
       margin: 20px 0px;
       opacity: 0;
-      animation: fade-in 250ms ease-in-out 6s forwards;
     }
   }
 }
@@ -247,7 +245,12 @@ main {
     bottom: 20px;
     background-color: whitesmoke;
     transform: scaleY(1);
-    animation: top-reveal 2s ease-in-out 7.5s forwards;
+  }
+}
+
+.active {
+  &::after {
+    animation: top-reveal 2s ease-in-out forwards;
   }
 }
 

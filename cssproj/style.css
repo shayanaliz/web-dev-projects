@@ -354,8 +354,6 @@ main {
   margin: 20px 0px;
   font-size: 2.6rem;
   opacity: 0;
-  -webkit-animation: fade-in 250ms ease-in-out 5s forwards;
-          animation: fade-in 250ms ease-in-out 5s forwards;
 }
 
 .landing-pg2 .landingtext-pg2 .title-pg2 .lft {
@@ -371,8 +369,6 @@ main {
 .landing-pg2 .landingtext-pg2 .loremipsum-pg2 {
   margin: 20px 0px;
   opacity: 0;
-  -webkit-animation: fade-in 250ms ease-in-out 6s forwards;
-          animation: fade-in 250ms ease-in-out 6s forwards;
 }
 
 .illustration-pg2 {
@@ -393,8 +389,11 @@ main {
   background-color: whitesmoke;
   -webkit-transform: scaleY(1);
           transform: scaleY(1);
-  -webkit-animation: top-reveal 2s ease-in-out 7.5s forwards;
-          animation: top-reveal 2s ease-in-out 7.5s forwards;
+}
+
+.active::after {
+  -webkit-animation: top-reveal 2s ease-in-out forwards;
+          animation: top-reveal 2s ease-in-out forwards;
 }
 
 @-webkit-keyframes top-reveal {
